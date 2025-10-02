@@ -48,5 +48,6 @@ export default withAuth(
 // config madhe jithe - jithe middleware run honar ahe tyanchi --> path dyavi lagte 
 export const config={
     // negative lookahead regex: "/((?!login).*)"
+    // Except these public routes, every other route will go through middleware.
     matcher: ["/((?!api/auth|login|register|$).*)"],
 }   
