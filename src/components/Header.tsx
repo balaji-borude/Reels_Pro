@@ -15,25 +15,35 @@ const Header = () => {
     try {
       await signOut();
       // userSignOut succesfully toast display kr
-      alert("signout")
+      alert(" user signout Succesfully")
       // redirect user to the Login screen
     } catch (error) {
       // display toast not signOut
+      alert("Issue in logout ")
     }
   };
 
   return (
-    <div>
-      <button onClick={() => handleSignOut}>SignOut</button>
+    <div className="">
+      
+      <nav>
+        {/* logo of Reels Proo */}
 
-      {sessionStorage ? (
-        <div> Welcome </div>
-      ) : (
-        <div>
-          <Link href="/login"> Login</Link>
-          <Link href="/register"> SignUp</Link>{" "}
-        </div>
-      )}
+        <p className="text-3xl bg-amber-400 "> Header section </p>
+
+
+        <button onClick={handleSignOut}>SignOut</button>
+        {/* <p className="bg-green-400 w-10"> {data?.user}</p> */}
+        {data ? (
+          <div> Welcome </div>
+        ) : (
+          <div>
+            <Link href="/login"> Login</Link>
+            <Link href="/register"> SignUp</Link>{" "}
+          </div>
+        )}
+      </nav>
+      
       
     </div>
   );

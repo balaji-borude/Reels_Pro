@@ -9,7 +9,8 @@ import { ImageKitProvider } from "@imagekit/next";
 const urlEndpoint = process.env.IMAGE_KIT_URL!;
 const publicKey = process.env.IMAGE_KIT_PUBLIC_KEY!;
 
-
+console.log("url endpoints --> ",urlEndpoint);
+console.log(publicKey);
 
 export default function Providers({ children }: { children: React.ReactNode }) {
 
