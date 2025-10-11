@@ -10,15 +10,26 @@ const Register = () => {
 
     const [error,setError] = useState <string | null > ("");
 
+    const [formData, setFormData] = useState({
+        firstName:"",
+        email:"",
+        password:"",
+        phoneNumber:""
+
+    });
 
     // link or router
     const router = useRouter();
     //router.push("/login");
 
     // method handle submit 
-    const handleSubmit = async(e:React.FormEvent<HTMLFormElement>)=>
-    {
+    const handleSubmit = async(e:React.FormEvent<HTMLFormElement>)=>{
+
+
         e.preventDefault();
+
+        console.log("printing the formData",formData);
+
 
         // validation
         if(password == confirmPassword){
@@ -46,12 +57,32 @@ const Register = () => {
         }
 
     }
+    
 
+
+
+    function changeHandler(e){
+        setFormData((prevData)=>({
+            ...prevData,
+            [e.target.name]:e.target.value
+        }))
+    }
 
     return (
-        <div>
-            Thisis register page 
-        </div>
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor='firstName'>firstName:</label>
+                <input
+                    type='text'
+                    name='firstName'
+                    onChange={changeHandler}
+                    placeholder='Enter your Name'
+                />
+
+
+                <button type='submit'> SignIn</button>
+            </div>
+        </form>
     );
 }
 
