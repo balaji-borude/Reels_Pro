@@ -52,7 +52,7 @@
             cached.promise = null;
             console.log("Error in DB Connection --> ", error);
             throw new Error(" check Db File ");
-            throw error;
+           
         }
 
         return cached.conn; 
